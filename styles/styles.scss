@@ -1,0 +1,143 @@
+
+@import "./_variables.scss";
+@import "./_botones.scss";
+@import "./_mixins.scss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.preload{
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: 100vh;
+    //background: $avionfondo;
+    @include flexCenterImgs($avionfondo);
+    h3{
+        position: absolute;
+        top: 75%;
+        transform: translateY(-75%);
+        color: white;
+        font-size:40px;
+        font-family: sans-serif;
+    }
+    transition: opacity 0.5 ease;
+}
+
+.preload-finish{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.avioncito{
+    height: 200px;
+    animation: avioncito 1s ease infinite alternate;
+}
+
+section{
+    @include flexCenter(none,column,$avionfondo);
+    img {
+        @include flexCenter(100vh,none,$primaryBgd);
+    }
+}
+
+@keyframes avioncito{
+    from {
+        transform:translateY(0px);
+    }
+    to {
+        transform:translateY(50px);
+    }
+}
+
+@keyframes clouds{
+    from {
+        right:0%;
+    }
+    to {
+        right:130%;
+    }
+}
+
+
+.cloud1,.cloud2,.cloud3{
+    height: 50%;
+    margin: -15%;
+    right:0%;
+    position: absolute;
+    z-index: -1;
+}
+
+.cloud1{
+    top: 25%;
+    transform: translate(20%,5%);
+    animation: clouds 5s ease infinite 1s;
+}
+.cloud2{
+    top: 60%;
+    transform: translate(20%,5%);
+    animation: clouds 5s ease infinite 2s;
+}
+.cloud3{
+    top: 90%;
+    transform: translate(20%,5%);
+    animation: clouds 5s ease infinite 3s;
+}
+
+
+header{
+    background:$primaryBgd;
+    display: flex;
+    justify-content: center;
+    color:$textColor;
+    button{
+        background:$primaryBgd;
+        &:hover{
+            background:$hoverColor;
+        }
+        &::after{
+            content:' Despues';
+        }
+    }
+}
+
+
+.contact button{
+    background:$colorBtn;
+}
+
+.div1{
+    @include flexCenter(20vh,column,$divBgdFirst);
+}
+.div2{
+    @include flexCenter(20vh,row,$divBgdSecond); 
+}
+
+.div3{
+    @extend .div1;
+}
+
+.div1 button{
+    background:$colorBtn;
+}
+.div2 button{
+    background:$colorBtn;
+}
+.div3 button{
+    background:$colorBtn;
+}
+.div4 button{
+    background:$colorBtn;
+}
+.div5 button{
+    background:$colorBtn;
+}
+.div6 button{
+    background:$colorBtn;
+}
